@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vous êtes invités au 1er anniversaire de Rassim</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-dark: #0b3d91;
+    --blue: #2b8ee5;
+    --blue-light: #d8ecff;
+    --sky: #eaf5ff;
+    --yellow: #ffd23f;
+    --text: #33475b;
+  }
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Fredoka", "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(160deg, #3b6574 0%, #2b8ee5 100%);
+    overflow-x: hidden;
+  }
+
+  .invitation {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    padding: 36px 24px 28px;
+    text-align: center;
+    background: var(--sky);
+    border: 3px solid var(--blue-dark);
+    border-radius: 28px;
+    box-shadow: 8px 8px 0 var(--yellow), 0 18px 40px rgba(0,0,0,.2);
+    overflow: hidden;
+  }
+
+  /* petits points décoratifs */
+  .invitation::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(var(--blue-light) 2px, transparent 2.5px);
+    background-size: 22px 22px;
+    opacity: .9;
+    pointer-events: none;
+  }
+  .invitation > * { position: relative; }
+
+  .intro {
+    margin: 0;
+    color: var(--blue-dark);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  /* Gros chiffre 1 dans un ballon */
+  .balloon {
+    width: 130px;
+    height: 160px;
+    margin: 18px auto 34px;
+    display: grid;
+    place-items: center;
+    background: var(--blue);
+    border-radius: 50% 50% 48% 48% / 55% 55% 45% 45%;
+    color: white;
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    box-shadow: inset -10px -10px 0 rgba(0,0,0,.08);
+    animation: float 3s ease-in-out infinite;
+  }
+  .balloon::after {
+    content: "";
+    position: absolute;
+    top: 100%; left: 50%;
+    width: 2px; height: 34px;
+    background: var(--blue-dark);
+    transform: translateX(-50%);
+    opacity: .6;
+  }
+  @keyframes float {
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  h1 {
+    margin: 0 0 6px;
+    color: var(--blue-dark);
+    font-size: 34px;
+    line-height: 1.15;
+  }
+
+  .party-title {
+    margin: 0 0 18px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+
+  .text {
+    margin: 0 auto;
+    max-width: 380px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .details {
+    background: white;
+    border: 2px solid var(--blue-dark);
+    border-radius: 18px;
+    padding: 14px 18px;
+    margin: 24px 0;
+    text-align: left;
+  }
+  .details p { margin: 8px 0; color: var(--text); }
+
+  /* Compte à rebours */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 24px;
+  }
+  .countdown div {
+    min-width: 66px;
+    padding: 8px 6px;
+    background: var(--blue-dark);
+    color: white;
+    border-radius: 14px;
+  }
+  .countdown strong { display: block; font-size: 26px; line-height: 1.1; }
+  .countdown span { font-size: 12px; }
+  .countdown-label { margin: 0 0 8px; color: var(--blue-dark); font-weight: 500; }
+  .countdown-done { color: var(--blue-dark); font-weight: 700; margin-bottom: 24px; }
+
+  /* RSVP */
+  input {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font: inherit;
+    border: 2px solid var(--blue-dark);
+    border-radius: 30px;
+    text-align: center;
+  }
+  input:focus-visible, button:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+    padding: 14px 28px;
+    font: inherit;
+    font-weight: 700;
+    color: white;
+    background: var(--blue-dark);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform .2s, background .2s;
+  }
+  button:hover { background: #082c6b; transform: scale(1.05); }
+
+  #message {
+    min-height: 1.5em;
+    margin: 16px 0 0;
+    color: var(--blue-dark);
+    font-weight: 700;
+  }
+
+  footer { margin-top: 18px; font-size: 13px; color: #5d8fa0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .balloon { animation: none; }
+    button { transition: none; }
+  }
+</style>
+</head>
+
+<body>
+  <main class="invitation">
+
+    <p class="intro">Vous êtes invités 💙</p>
+
+    <div class="balloon" aria-hidden="true">1</div>
+
+    <h1>Le 1er anniversaire</h1>
+    <h2 class="party-title">de Rassim</h2>
+
+    <p class="text">
+      Célébrons ensemble un jour spécial. J’aimerais beaucoup que vous soyez
+      présents pour partager de beaux souvenirs avec nous.
+    </p>
+
+    <div class="details">
+      <p>📅 <strong>Date :</strong> vendredi 6 novembre 2026</p>
+      <p>⏰ <strong>Heure :</strong> 15h00</p>
+      <p>📍 <strong>Lieu :</strong> chez nous</p>
+    </div>
+
+    <p class="countdown-label">Rendez-vous dans</p>
+    <div id="countdown" class="countdown" aria-live="polite"></div>
+
+    <input id="name" type="text" placeholder="Votre prénom" aria-label="Votre prénom">
+    <button onclick="confirmInvitation()">Je serai là ! 💙</button>
+    <p id="message" role="status"></p>
+
+    <footer>Fait avec amour ♡</footer>
+  </main>
+
+  <script>
+    // Date de la fête : 6 novembre 2026 à 15h00 (mois 10 = novembre)
+    var partyDate = new Date(2026, 10, 6, 15, 0, 0);
+
+    function updateCountdown() {
+      var box = document.getElementById("countdown");
+      var diff = partyDate - new Date();
+
+      if (diff <= 0) {
+        box.className = "countdown-done";
+        box.textContent = "C’est le grand jour ! 🎉";
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor(diff / 3600000) % 24;
+      var m = Math.floor(diff / 60000) % 60;
+
+      box.innerHTML =
+        "<div><strong>" + d + "</strong><span>jours</span></div>" +
+        "<div><strong>" + h + "</strong><span>heures</span></div>" +
+        "<div><strong>" + m + "</strong><span>minutes</span></div>";
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    function confirmInvitation() {
+      var name = document.getElementById("name").value.trim();
+      document.getElementById("message").textContent =
+        (name ? "Merci " + name + " ! " : "Merci ! ") + "On a hâte de vous voir 🎈";
+    }
+  </script>
+</body>
+</html>
